@@ -1,0 +1,6 @@
+{
+  "_comment": "glibc @ glibc-2.39 (the c/ submodule) for the side campaign of crustify-rs/ffmpeg-bindings. libc is the system's: the parent, every other library on the host and the dynamic loader link the installed glibc 2.39 (libc6 2.39-0ubuntu8.9), so the campaign builds no variant of it, and c/ is glibc's source, for reading its behaviour. The raw bindings are generated from the host's headers (libc-sys/build.rs). The tests run on the system's libc; sanitized runs instrument the Rust only.",
+  "version": 1,
+  "build_commands": {},
+  "variants": {}
+}

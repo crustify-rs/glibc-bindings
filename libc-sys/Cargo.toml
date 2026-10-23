@@ -1,0 +1,17 @@
+[package]
+name = "libc-sys"
+description = "Raw FFI bindings to glibc, generated from the host's headers"
+build = "build.rs"
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+publish.workspace = true
+
+[lib]
+# C doc comments carry C code blocks that are not Rust doctests.
+doctest = false
+
+[build-dependencies]
+bindgen.workspace = true
