@@ -11,7 +11,8 @@ for campaign decisions that remain unresolved.
      `c/` submodule. The release the parent campaign, `crustify-rs/ffmpeg-bindings`, links:
      the system's glibc, package `libc6-dev 2.39-0ubuntu8.9`, whose distribution patches
      `crustify/artifacts/dependencies.json` of the parent records. Side campaign of
-     `crustify-rs/ffmpeg-bindings`.
+     `crustify-rs/ffmpeg-bindings` and of `crustify-rs/libgit2-bindings`, which links the
+     same glibc 2.39.
 
 2. **Should this campaign port the C implementation to Rust, or create safe
    Rust wrappers?** (`id: campaign`)
@@ -21,9 +22,11 @@ for campaign decisions that remain unresolved.
    subset of functions and types, or the whole target repo? You can define them
    now or we can brainstorm them during the live session. You can also let the
    orchestrator decide.** (`id: scope`)
-   - Answer: what the parent campaign consumes from libc, the entities its dependency
-     records count: `struct tm` (`libavutil/bprint.c`, `libavutil/parseutils.c`) and
-     `FILE` (`libavformat/dump.c`), growing as the parent's waves need more
+   - Answer: what the parent campaigns consume from libc, the entities their dependency
+     records count: for `crustify-rs/ffmpeg-bindings`, `struct tm` (`libavutil/bprint.c`,
+     `libavutil/parseutils.c`) and `FILE` (`libavformat/dump.c`); for
+     `crustify-rs/libgit2-bindings`, 871 functions, 95 structs and 2 globals, counted per
+     module over its 168 modules that use libc; growing as the parents' waves need more
 
 4. **Which model and billing should do the translation work?**
    (`id: translate-agent`)

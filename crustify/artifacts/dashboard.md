@@ -5,9 +5,9 @@
 As answered in `crustify/CRUSTIFY.md`; a change during the campaign is in its history
 and in Notes.
 
-- **source** — `https://sourceware.org/git/glibc.git` @ `ef321e23c2` (`glibc-2.39`); side campaign of `crustify-rs/ffmpeg-bindings`
+- **source** — `https://sourceware.org/git/glibc.git` @ `ef321e23c2` (`glibc-2.39`); side campaign of `crustify-rs/ffmpeg-bindings` and `crustify-rs/libgit2-bindings`
 - **campaign** — `wrap`
-- **scope** — what `crustify-rs/ffmpeg-bindings` consumes from libc: `struct tm`, `FILE`
+- **scope** — what `crustify-rs/ffmpeg-bindings` consumes from libc: `struct tm`, `FILE`; what `crustify-rs/libgit2-bindings` consumes: 871 functions, 95 structs, 2 globals, counted per module
 - **translate-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`
 - **review-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`; objectives `all`
 - **plan-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`; `2` runs
@@ -303,3 +303,12 @@ The wrapper's first type, `Tm` (`time/bits/types/struct_tm.h`), landed outside a
 (`TmRef::as_tm_ptr`, `TmMut::as_mut_tm_ptr`) through which the parent's raw bindings
 reach it. No agent ran, so it has no batch row and no cost; the side campaign's first
 planner run plans it as wrapped.
+
+### A second parent: `crustify-rs/libgit2-bindings`
+
+On 2026-10-24 `crustify-rs/libgit2-bindings` took this wrapper for its libc, which it
+links from the system as `crustify-rs/ffmpeg-bindings` does: the same glibc 2.39. Its
+modules' dependency records count 871 functions, 95 structs and 2 globals of libc,
+counted per module over the 168 modules that use it; they join this campaign's scope,
+which still grows only as each parent's waves need more. The `scope` setting names
+both parents' consumption.
