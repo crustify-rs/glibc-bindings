@@ -8,7 +8,7 @@ use core::ffi::{CStr, c_int, c_long};
 use core::fmt;
 use core::ptr::{self, NonNull, addr_of, addr_of_mut};
 
-use ffibox::{CZeroable, define_ctype};
+use ffibox::{CMutSeam, CRefSeam, CZeroable, define_ctype};
 
 use crate::libc::ffi;
 

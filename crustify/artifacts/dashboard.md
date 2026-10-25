@@ -312,3 +312,11 @@ modules' dependency records count 871 functions, 95 structs and 2 globals of lib
 counted per module over the 168 modules that use it; they join this campaign's scope,
 which still grows only as each parent's waves need more. The `scope` setting names
 both parents' consumption.
+
+### ffibox's seam traits
+
+ffibox `feat/public-handle-seam` (`0764300`, not yet on its `main`) moves the handles' raw
+seam (`from_ptr`, `as_ptr`, `as_mut_ptr` and their `void *` twins) from inherent
+`pub(crate)` methods onto the traits `CRefSeam`, `CMutSeam` and `CLockedSeam`, so that a
+parent holding this wrapper's handles can reach the pointer. `Tm`'s module imports the
+traits it calls; its public API is unchanged.
