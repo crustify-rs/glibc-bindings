@@ -315,7 +315,7 @@ both parents' consumption.
 
 ### ffibox's seam traits
 
-ffibox `feat/public-handle-seam` (`0764300`, not yet on its `main`) moves the handles' raw
+ffibox `7950244` (`main`, merged from `feat/public-handle-seam`) moves the handles' raw
 seam (`from_ptr`, `as_ptr`, `as_mut_ptr` and their `void *` twins) from inherent
 `pub(crate)` methods onto the traits `CRefSeam`, `CMutSeam` and `CLockedSeam`, so that a
 parent holding this wrapper's handles can reach the pointer. `Tm`'s module imports the
