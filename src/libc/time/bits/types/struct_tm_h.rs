@@ -193,28 +193,6 @@ impl TmMut<'_> {
     }
 }
 
-impl TmRef<'_> {
-    /// The handle's pointer, typed as the [`Tm`] it borrows, for the C calls of
-    /// wrappers in other crates: their raw bindings take `struct tm` as [`Tm`],
-    /// with which it is layout-compatible. It may be read while the handle
-    /// lives, and never written.
-    #[must_use]
-    pub fn as_tm_ptr(&self) -> *const Tm {
-        self.as_ptr().cast()
-    }
-}
-
-impl TmMut<'_> {
-    /// The handle's pointer, typed as the [`Tm`] it borrows, for the C calls of
-    /// wrappers in other crates that write it, as
-    /// [`TmRef::as_tm_ptr`] is for those that read it. It may be read and
-    /// written while the handle lives.
-    #[must_use]
-    pub fn as_mut_tm_ptr(&mut self) -> *mut Tm {
-        self.as_mut_ptr().cast()
-    }
-}
-
 #[cfg(test)]
 mod unit_tests {
     use super::*;
