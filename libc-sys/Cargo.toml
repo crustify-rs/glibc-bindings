@@ -1,6 +1,7 @@
 [package]
 name = "libc-sys"
 description = "Raw FFI bindings to glibc, generated from the host's headers"
+links = "c"
 build = "build.rs"
 version.workspace = true
 edition.workspace = true
@@ -14,4 +15,10 @@ publish.workspace = true
 doctest = false
 
 [build-dependencies]
-bindgen.workspace = true
+# Pinned exactly: the committed bindings are its output.
+bindgen = { workspace = true, optional = true }
+cc.workspace = true
+
+[features]
+# Regenerates the bindings from the host's headers, in place of the shipped ones.
+bindgen = ["dep:bindgen"]

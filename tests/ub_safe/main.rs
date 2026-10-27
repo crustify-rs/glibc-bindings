@@ -1,6 +1,7 @@
 //! UB tests against the safe public API.
 #![forbid(unsafe_code)]
 
+mod errno_loc;
 mod struct_tm_h;
 
 /// Programs under `compile_fail/` must be rejected by the compiler.

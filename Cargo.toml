@@ -17,6 +17,9 @@ ffibox.workspace = true
 libc-sys = { workspace = true, optional = true }
 
 [dev-dependencies]
+# The campaign's tests and gates regenerate the bindings, and check them against the
+# committed ones; the crate's dependents build from the shipped bindings.
+libc-sys = { workspace = true, features = ["bindgen"] }
 trybuild.workspace = true
 
 [lints]
@@ -35,10 +38,11 @@ license = "LGPL-2.1-or-later"
 publish = false
 
 [workspace.dependencies]
-bindgen = { version = "0.73", features = ["experimental"] }
+bindgen = { version = "=0.73.2", features = ["experimental"] }
+cc = "1.5"
 ffibox = { git = "https://github.com/crustify-rs/ffibox", rev = "203b1a05269bdd549459a80d5d58d6c2f2689d01" }
 trybuild = "1"
-libc-sys = { path = "libc-sys" }
+libc-sys = { version = "0.1.0", path = "libc-sys" }
 
 [workspace.metadata.crustify]
 nightly = "nightly-2026-10-08"

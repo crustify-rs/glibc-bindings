@@ -1,5 +1,0 @@
-# `<kind> <regex>` per line, `kind` one of function, type, var, item; `#` comments.
-
-# time/bits/types/struct_tm.h: the broken-down time, which libavutil's bprint.c and
-# parseutils.c consume (crustify-rs/ffmpeg-bindings).
-type tm

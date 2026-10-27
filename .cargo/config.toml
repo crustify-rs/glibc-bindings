@@ -1,0 +1,4 @@
+# Builds in this repository run the -sys crates in campaign mode (crustify's
+# specs/bindgen.md). libc has no variant of its own: every mode takes the host's glibc.
+[env]
+CRUSTIFY_BUILD_VARIANT = "plain"

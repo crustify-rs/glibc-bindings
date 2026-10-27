@@ -1,0 +1,20 @@
+# `<kind> <regex>` per line, `kind` one of function, type, var; `#` comments.
+
+# time/bits/types/struct_tm.h: the broken-down time, which libavutil's bprint.c and
+# parseutils.c consume (crustify-rs/ffmpeg-bindings).
+type tm
+
+# csu/errno-loc.c: the calling thread's errno, which libgit2's util/errors.c and its tests
+# read and write (crustify-rs/libgit2-bindings).
+function __errno_location
+
+# The errno values, open flags and signal numbers libgit2-bindings' tests use.
+var ENOENT|EACCES|EPERM|EINTR|ENOTDIR
+var O_WRONLY|O_CREAT|O_EXCL
+var SIGABRT
+
+# malloc/malloc.c, string/strlen.c, io/umask.c: what libgit2-bindings' tests call raw: a
+# custom allocator over malloc, a C string's length, and the process's file mode mask.
+function malloc|realloc|free
+function strlen
+function umask
