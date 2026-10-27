@@ -36,7 +36,7 @@ publish = false
 
 [workspace.dependencies]
 bindgen = { version = "0.73", features = ["experimental"] }
-ffibox = { path = "/opt/venv/share/ffibox" }
+ffibox = { git = "https://github.com/crustify-rs/ffibox", rev = "203b1a05269bdd549459a80d5d58d6c2f2689d01" }
 trybuild = "1"
 libc-sys = { path = "libc-sys" }
 
@@ -71,3 +71,8 @@ allow_attributes_without_reason = "deny"
 module_inception = "allow"
 module_name_repetitions = "allow"
 multiple_crate_versions = "allow"
+
+# ffibox is pinned by Git so that every crate in a graph resolves one copy of it;
+# the patch points it at the local checkout while the campaign runs against it.
+[patch."https://github.com/crustify-rs/ffibox"]
+ffibox = { path = "/opt/venv/share/ffibox" }
