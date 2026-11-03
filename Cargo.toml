@@ -40,7 +40,7 @@ publish = false
 [workspace.dependencies]
 bindgen = { version = "=0.73.2", features = ["experimental"] }
 cc = "1.5"
-ffibox = { git = "https://github.com/crustify-rs/ffibox", rev = "203b1a05269bdd549459a80d5d58d6c2f2689d01" }
+ffibox = { git = "https://github.com/crustify-rs/ffibox", rev = "40621a29bffaede7a212c67eeadf803df6f1be29" }
 trybuild = "1"
 libc-sys = { version = "0.1.0", path = "libc-sys" }
 
