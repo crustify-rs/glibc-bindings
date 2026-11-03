@@ -11,7 +11,8 @@ and in Notes.
 - **translate-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`
 - **review-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`; objectives `all`
 - **plan-agent** — `openrouter/anthropic/claude-opus-5.5`, `api`; `2` runs
-- **workload** — max-types `2`, max-syms `25`, max-loc `500`, parallelism `16`
+- **workload** — max-types `2`, max-syms `25`, max-loc `500`, parallelism `assistant's choice` (from 2026-11-03; `16` before)
+- **identity** — author `Marius Momeu <marius.momeu@berkeley.edu>`, co-author `crustify <crustify@berkeley.edu>` (from 2026-11-03; `crustify` as the author before)
 - **review-workload** — `as many as the reviewed wave requires`
 - **sanitizers** — `asan-ubsan`, `tsan`, `bsan`, over the Rust; the system glibc is not instrumented
 - **target-config** — none: libc is the system's and is not built, `build.json` version `1`
@@ -320,3 +321,10 @@ seam (`from_ptr`, `as_ptr`, `as_mut_ptr` and their `void *` twins) from inherent
 `pub(crate)` methods onto the traits `CRefSeam`, `CMutSeam` and `CLockedSeam`, so that a
 parent holding this wrapper's handles can reach the pointer. `Tm`'s module imports the
 traits it calls; its public API is unchanged.
+
+### Settings changes of 2026-11-03
+
+As its parents, `crustify-rs/ffmpeg-bindings` and `crustify-rs/libgit2-bindings`, do, the
+settings leave the parallelism to the assistant, which decides it from the host's resources
+and the workloads sharing it, and name the campaign's commit identity: Marius Momeu as the
+author, with Crustify as the co-author.
